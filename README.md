@@ -1,0 +1,3 @@
+## My dotfiles
+
+Enjoy ig, you'll need to install a bunch of stuff. Script for that incoming...
