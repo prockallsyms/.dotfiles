@@ -2,7 +2,7 @@
 # VERSION: 3.0
 SETUVAR --export EDITOR:nvim
 SETUVAR --export --path PATH:/storage/cargo//bin\x1e/home/m3ta/\x2ecargo/bin\x1e/usr/local/bin\x1e/usr/bin\x1e/usr/local/sbin\x1e/usr/sbin\x1e/var/lib/snapd/snap/bin\x1e/home/m3ta/\x2elocal/bin\x1e/opt/nvim\x2dlinux64/bin\x1e/storage/depot_tools\x1e/storage/go/bin\x1e/storage/cargo/bin\x1e/home/m3ta/\x2elocal/bin\x1e/opt/nvim\x2dlinux64/bin\x1e/storage/depot_tools\x1e/storage/go/bin\x1e/storage/cargo/bin\x1e/storage/crosstool\x2dng\x2d1\x2e26\x2e0/x\x2dtools/arm\x2dunknown\x2dlinux\x2dgnueabi/bin/
-SETUVAR __fish_initialized:3100
+SETUVAR __fish_initialized:3400
 SETUVAR _fish_abbr_e:nvim
 SETUVAR _fish_abbr_g:git
 SETUVAR _fish_abbr_ga:git\x20add\x20\x2dp
@@ -42,3 +42,4 @@ SETUVAR fish_pager_color_completion:\x1d
 SETUVAR fish_pager_color_description:B3A06D\x1eyellow
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
+SETUVAR fish_pager_color_selected_background:\x2dr
