@@ -1,0 +1,12 @@
+local set = vim.opt
+set.nu = true
+set.rnu = true
+set.so = 10
+set.shiftwidth = 4
+set.softtabstop = 4
+set.tabstop = 4
+set.expandtab = false
+set.vb = true
+set.wildmode = "list:longest"
+set.wildignore = ".hg,.svn,*~,*.png,*.jpg,*.mov,*.mp3,*.mp4,*.exe,*.min.js,*.gif,*.swp,*.o,vendor"
+set.termguicolors = true
