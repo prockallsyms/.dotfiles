@@ -26,6 +26,15 @@ autocmd("BufWritePre", {
 	command = [[%s/\s\+$//e]],
 })
 
+-- activate nvim-cmp completions for crates.nvim lazily
+local crates_cmp = augroup('CmpSourceCargo', { clear = true })
+autocmd('BufRead', {
+	group = crates_cmp,
+	pattern = "Cargo.toml",
+	callback = function()
+		cmp.setup.buffer({ sources = {{ name = "crates" }}})
+	end,
+})
 
 autocmd('LspAttach', {
 	group = vim.api.nvim_create_augroup('UserLspConfig', {}),
