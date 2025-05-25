@@ -12,5 +12,5 @@ cd .dotfiles
 stow -v .
 ```
 
-Et voila.
+Make sure you set your custom fish environment variables (cargo/go bin storage directory!) in `$HOME/.local/share/env.fish`!
 
