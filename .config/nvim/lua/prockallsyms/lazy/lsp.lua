@@ -35,7 +35,7 @@ return {
 				end,
 
 				["rust_analyzer"] = function()
-					require("lspconfig").rust_analyzer.setup {
+					require("lspconfig").rust_analyzer.setup({
 						capabilities = capabilities,
 						settings = {
 							["rust-analyzer"] = {
@@ -54,11 +54,11 @@ return {
 								}
 							}
 						}
-					}
+					})
 				end,
 
 				["gopls"] = function()
-					require("lspconfig").gopls.setup {
+					require("lspconfig").gopls.setup({
 						capabilities = capabilities,
 						settings = {
 							gopls = {
@@ -74,7 +74,7 @@ return {
 								},
 							}
 						}
-					}
+					})
 				end
 			},
 		})
