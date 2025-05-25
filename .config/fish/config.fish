@@ -6,6 +6,7 @@ abbr -a 'gch' 'git checkout'
 abbr -a 'll' 'ls -l'
 abbr -a 'la' 'ls -a'
 abbr -a 'lll' 'ls -la'
+abbr -a 'vim' 'nvim'
 
 set -g fish_key_bindings fish_vi_key_bindings
 
