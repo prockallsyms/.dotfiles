@@ -1,8 +1,34 @@
 return {
 	{
-		"rust-lang/rust.vim",
-		event = "BufEnter *.rs",
-		opts = {},
+		'rust-lang/rust.vim',
+		ft = { 'rust' },
+		config = function()
+			vim.g.auto_focus = true
+			vim.g.rustfmt_autosave = 1
+			vim.g.rustfmt_emit_files = 1
+			vim.g.rustfmt_fail_silently = 0
+		end,
+	},
+	{
+		'saecki/crates.nvim',
+		event = { "BufRead Cargo.toml" },
+		tag = 'stable',
+		config = function()
+			require('crates').setup({
+				lsp = {
+					enabled = true,
+					on_attack = function(client, bufnr) end,
+					actions = true,
+					completion = false,
+					hover = true,
+				},
+				completions	= {
+					cmp = {
+						enabled = true,
+					},
+				},
+			})
+		end,
 	},
 	{
 		"ray-x/go.nvim",
