@@ -84,8 +84,8 @@ fzf --fish | source
 
 zoxide init --cmd j fish | source
 
-set -x GOPATH /storage/go
+# set -x GOPATH /storage/go
 # must be configured per system as different systems may have global CARGO_HOMEs
 source "$HOME/.local/share/env.fish"
-set -x PATH $PATH ~/.local/bin /opt/nvim-linux64/bin /storage/depot_tools /storage/go/bin /storage/cargo/bin
+set -x PATH $PATH ~/.local/bin # /opt/nvim-linux64/bin /storage/depot_tools /storage/go/bin /storage/cargo/bin
 
