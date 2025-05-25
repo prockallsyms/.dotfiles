@@ -19,11 +19,11 @@ function cat
 end
 
 function fish_prompt
-    echo 
+    echo
 end
 
 function fish_mode_prompt
-    echo 
+    echo
 end
 
 function fish_greeting
@@ -77,7 +77,7 @@ functions -e fish_right_prompt; function fish_prompt --description 'Informative 
 	(set_color $fish_color_cwd) (command echo $PWD | sed -e 's|/home/m3ta|~|') $git_status_color $git_branch (set_color normal) \
 	$pipestatus_string (set_color normal) \
 	(set_color brblue) ' ~> ' (set_color normal)
-    
+
 end
 
 fzf --fish | source
@@ -85,7 +85,7 @@ fzf --fish | source
 zoxide init --cmd j fish | source
 
 set -x GOPATH /storage/go
-set -x CARGO_HOME /storage/cargo/
-source "$CARGO_HOME/env.fish"
+# must be configured per system as different systems may have global CARGO_HOMEs
+source "$HOME/.local/share/env.fish"
 set -x PATH $PATH ~/.local/bin /opt/nvim-linux64/bin /storage/depot_tools /storage/go/bin /storage/cargo/bin
 
