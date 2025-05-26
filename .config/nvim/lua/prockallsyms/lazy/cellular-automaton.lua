@@ -20,6 +20,7 @@ return {
 						vim.cmd(opts.customcmd)
 					else
 						vim.g.cellular_automaton = true
+						vim.notify("[cellular_automaton.lua]: Press q or <Esc> to stop the Cellular Automaton.")
 						vim.cmd("CellularAutomaton " .. (opts.style or "game_of_life")) -- any style listed on Eandrju/cellular-automaton.nvim will work
 					end
 				end))
