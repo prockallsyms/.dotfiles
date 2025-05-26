@@ -32,30 +32,28 @@ return {
 	},
 	{
 		"ray-x/go.nvim",
-		event = "BufEnter *.go",
-		config = function()
+		dependencies = {  -- optional packages
+			"neovim/nvim-lspconfig",
+			"nvim-treesitter/nvim-treesitter",
+		},
+		opts = {
+			lsp_cfg = true,
+			lsp_semantic_highlights = true,
+		},
+		ft = { "go", "gomod" },
+		event = { "CmdLineEnter" },
+		build = ":lua require('go.install').update_all_sync()",
+		config = function(lp, opts)
+			require("go").setup(opts)
 			local format_sync_grp = vim.api.nvim_create_augroup("GoFormat", {})
 			vim.api.nvim_create_autocmd("BufWritePre", {
+				group = format_sync_grp,
 				pattern = "*.go",
 				callback = function()
 					require('go.format').goimports()
 				end,
-				group = format_sync_grp,
 			})
-
-			local capabilities = vim.tbl_deep_extend(
-				"force",
-				{},
-				vim.lsp.protocol.make_client_capabilities(),
-				cmp_lsp.default_capabilities()
-			)
-
-			return {
-				lsp_cfg = { capabilities = capabilities },
-				gofmt = "gopls",
-				fillstruct = "gopls",
-				lsp_semantic_highlights = true,
-			}
+			return {}
 		end
 	},
 }
