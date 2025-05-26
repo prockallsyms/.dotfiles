@@ -1,9 +1,10 @@
+-- remap capslock to escape and set leader key to space
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Caps>", "<Esc>", { silent = true })
 vim.g.mapleader = " "
 
-vim.keymap.set("n", "<Leader>cl", "v$\"*y", { silent = true})
-vim.keymap.set("n", "<Leader>cc", "\"*y", { silent = true})
+vim.keymap.set("n", "<Leader>cl", "v$\"*y", { silent = true, desc = "Copy line to clipboard" })
+vim.keymap.set("n", "<Leader>cc", "\"*y", { silent = true, desc = "Copy selection to clipboard" })
 
 local builtin = require("telescope.builtin")
 -- telescope test mapping
