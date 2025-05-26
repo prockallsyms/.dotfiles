@@ -88,4 +88,4 @@ zoxide init --cmd j fish | source
 # must be configured per system as different systems may have global CARGO_HOMEs
 source "$HOME/.local/share/env.fish"
 set -x PATH $PATH ~/.local/bin
-
+nvm use latest
