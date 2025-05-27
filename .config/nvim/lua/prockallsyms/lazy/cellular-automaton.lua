@@ -20,8 +20,12 @@ return {
 						vim.cmd(opts.customcmd)
 					else
 						vim.g.cellular_automaton = true
-						vim.notify("[cellular_automaton.lua]: Press q or <Esc> to stop the Cellular Automaton.")
-						vim.cmd("CellularAutomaton " .. (opts.style or "game_of_life")) -- any style listed on Eandrju/cellular-automaton.nvim will work
+						-- any style listed on Eandrju/cellular-automaton.nvim will work
+						local success, err = pcall(vim.cmd, ("CellularAutomaton " .. (opts.style or "game_of_life")))
+						if success then
+							vim.notify("[cellular_automaton.lua]: Press q or <Esc> to stop the Cellular Automaton.")
+						end -- failed silently if this doesn't work
+
 					end
 				end))
 
