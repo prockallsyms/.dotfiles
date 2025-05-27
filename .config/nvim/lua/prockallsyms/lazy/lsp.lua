@@ -11,6 +11,7 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
+		"zbirenbaum/copilot-cmp",
 	},
 
 	--
@@ -96,8 +97,8 @@ return {
 				['<C-e>'] = cmp.mapping.abort(),
 				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
 				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
-				['<C-b>'] = cmp.mapping.scroll_docs(-4),
-				['<C-f>'] = cmp.mapping.scroll_docs(4),
+				['<C-u>'] = cmp.mapping.scroll_docs(-4),
+				['<C-d>'] = cmp.mapping.scroll_docs(4),
 				['<C-y>'] = cmp.mapping.confirm({ select = true }),
 				['<C-Space>'] = cmp.mapping.complete(),
 			}),
@@ -112,14 +113,6 @@ return {
 			--}
 			),
 		})
-
-		--[[
-		cmp.setup.cmdline(':', {
-			source = cmp.config.sources({
-				{ name = 'path' }
-			})
-		})
-		--]]
 	end
 	--]]
 }
