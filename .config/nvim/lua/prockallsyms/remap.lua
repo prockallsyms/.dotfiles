@@ -1,3 +1,5 @@
+local autocmd = vim.api.nvim_create_autocmd
+
 -- remap capslock to escape and set leader key to space
 vim.keymap.set("n", "<Space>", "<Nop>", { silent = true })
 vim.keymap.set("n", "<Caps>", "<Esc>", { silent = true })
@@ -23,6 +25,38 @@ vim.keymap.set("n", "<Leader>lt", builtin.lsp_type_definitions, { desc = "[L]SP 
 
 -- git remaps
 vim.keymap.set("n", "<Leader>gs", builtin.git_status, { desc = "[G]it [S]tatus" })
+vim.keymap.set("n", "<Leader>gb", builtin.git_branches, { desc = "[G]it [B]ranches" })
+vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Use Fugitive Git" })
+
+local prockallsyms_Fugitive = vim.api.nvim_create_augroup("prockallsyms_Fugitive", {})
+autocmd("BufWinEnter", {
+    group = prockallsyms_Fugitive,
+    pattern = "*",
+    callback = function()
+	if vim.bo.filetype == "fugitive" then
+	    return
+	end
+
+	local bufnr = vim.api.nvim_get_current_buf()
+	local opts = { buffer = bufnr, remap = false }
+
+	opts.desc = "[G]it [Push]"
+	vim.keymap.set("n", "<leader>gpush", function() vim.cmd.Git("push") end, opts)
+	--
+	-- rebase always
+	opts.desc = "[G]it [Pull]"
+	vim.keymap.set("n", "<leader>gpull", function() vim.cmd.Git({ "pull", "--rebase" }) end, opts)
+
+	opts.desc = "[G]it [C]ommit"
+	vim.keymap.set("n", "<leader>gc",
+	function()
+	    vim.ui.input({ prompt = "Commit Message: " },
+	    function(input)
+		vim.cmd.Git("commit -m \"" .. input .. "\"")
+	    end)
+	end, opts)
+    end,
+})
 
 -- buffer remaps
 vim.keymap.set("n", "<Leader>bb", builtin.buffers, { desc = "[B]iultin [B]uffers, enumerates open buffers" })
@@ -30,7 +64,7 @@ vim.keymap.set("n", "<Leader>bc", function() vim.cmd('bd') end, { desc = "[B]uff
 vim.keymap.set("n", "<Leader><Leader>", function() vim.cmd('b#') end, { desc = "Swap to last open buffer" })
 
 -- Go filetype-specific keymaps
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
     pattern = "go",
     callback = function(event)
 	vim.keymap.set("n", "<Leader>gat", ":GoAddTag<CR>", { desc = "[G]o [A]dd JSON [T]ags to the struct I'm in" })
@@ -46,10 +80,10 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 --[[ Rust filetype-specific keymaps
-vim.api.nvim_create_autocmd("FileType", {
+autocmd("FileType", {
     pattern = "rs",
     callback = function(event)
-		vim.keymap.set("n", "<Leader>_", "", { desc = "" })
+	vim.keymap.set("n", "<Leader>_", "", { desc = "" })
     end,
 })
 --]]
