@@ -93,27 +93,33 @@ return {
 				--	documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
+				['<C-e>'] = cmp.mapping.abort(),
+				['<C-p>'] = cmp.mapping.select_prev_item(cmp_select),
+				['<C-n>'] = cmp.mapping.select_next_item(cmp_select),
 				['<C-b>'] = cmp.mapping.scroll_docs(-4),
 				['<C-f>'] = cmp.mapping.scroll_docs(4),
+				['<C-y>'] = cmp.mapping.confirm({ select = true }),
 				['<C-Space>'] = cmp.mapping.complete(),
-				['<C-e>'] = cmp.mapping.abort(),
-				['<Tab>'] = cmp.mapping.confirm({ select = true }),
 			}),
 			sources = cmp.config.sources({
+				{ name = 'copilot', group_index = 2 },
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
 			}, {
 				{ name = 'buffer' },
-			}, {
-				{ name = 'nvim_lsp_signature_help' },
-			})
+			} --,{
+				--{ name = 'nvim_lsp_signature_help' },
+			--}
+			),
 		})
 
+		--[[
 		cmp.setup.cmdline(':', {
 			source = cmp.config.sources({
 				{ name = 'path' }
 			})
 		})
+		--]]
 	end
 	--]]
 }
