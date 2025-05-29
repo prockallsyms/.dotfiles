@@ -12,7 +12,7 @@ return {
 		"hrsh7th/cmp-path",
 		"hrsh7th/cmp-vsnip",
 		"hrsh7th/vim-vsnip",
-		"zbirenbaum/copilot-cmp",
+		-- "zbirenbaum/copilot-cmp",
 	},
 
 	--
@@ -31,9 +31,9 @@ return {
 			ensure_installed = {"lua_ls", "rust_analyzer", "gopls"},
 			handlers = {
 				function(server_name)
-					require("lspconfig")[server_name].setup {
+					require("lspconfig")[server_name].setup({
 						capabilities = capabilities
-					}
+					})
 				end,
 
 				["rust_analyzer"] = function()
@@ -110,9 +110,9 @@ return {
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
 			}, {
-				{ name = 'nvim_lsp_signature_help' },
-			}, {
 				{ name = 'buffer' },
+			}, {
+				{ name = 'nvim_lsp_signature_help' },
 			}
 			),
 		})
