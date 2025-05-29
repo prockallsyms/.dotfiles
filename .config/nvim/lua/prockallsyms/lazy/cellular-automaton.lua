@@ -14,7 +14,7 @@ return {
 
 				timer = vim.loop.new_timer()
 				-- adjust the delay as needed here
-				timer:start(120 * 1000, 0, vim.schedule_wrap(function()
+				timer:start(5 * 60 * 1000, 0, vim.schedule_wrap(function()
 					if timer:is_active() then timer:stop() end
 					if opts.style == "customcmd" then
 						vim.cmd(opts.customcmd)
