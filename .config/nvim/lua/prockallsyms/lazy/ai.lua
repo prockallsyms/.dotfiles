@@ -41,7 +41,7 @@ return {
 							},
 						},
 						env = {
-							url = "http://10.0.0.228:11434",
+							url = "http://" .. (vim.g.ollama_endpoint or "localhost") .. ":11434",
 							api_key = "NONE",
 						},
 						headers = {
