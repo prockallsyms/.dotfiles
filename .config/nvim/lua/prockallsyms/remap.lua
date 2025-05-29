@@ -79,7 +79,7 @@ autocmd("BufWinEnter", {
 	--
 	-- rebase always
 	opts.desc = "[G]it [Pull]"
-	vim.keymap.set("n", "<leader>gpull", function() vim.cmd.Git({ "pull", "--rebase" }) end, opts)
+	vim.keymap.set("n", "<leader>gpull", function() vim.cmd.Git("pull --rebase") end, opts)
 
 	opts.desc = "[G]it [C]ommit"
 	vim.keymap.set("n", "<leader>gc",
