@@ -25,11 +25,6 @@ return {
 	},
 
 	{
-		"voldikss/vim-floaterm",
-		lazy = true,
-	},
-
-	{
 		"folke/which-key.nvim",
 		event = "VeryLazy",
 		opts = {},
@@ -40,18 +35,6 @@ return {
 					require("which-key").show({ global = true })
 				end,
 				desc = "Buffer Local Keymaps (which-key)",
-			},
-		},
-	},
-
-	{
-		"zbirenbaum/copilot.lua",
-		opts = {
-			suggestion = {
-				enabled = false,
-			},
-			panel = {
-				enabled = false,
 			},
 		},
 	},

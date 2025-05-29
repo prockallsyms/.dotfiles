@@ -1,5 +1,6 @@
 return {
 	"neovim/nvim-lspconfig",
+	event = "VeryLazy",
 	dependencies = {
 		"williamboman/mason.nvim",
 		"williamboman/mason-lspconfig.nvim",
@@ -90,8 +91,8 @@ return {
 				end,
 			},
 			window = {
-				--	completion = cmp.config.window.bordered(),
-				--	documentation = cmp.config.window.bordered(),
+				completion = cmp.config.window.bordered(),
+				documentation = cmp.config.window.bordered(),
 			},
 			mapping = cmp.mapping.preset.insert({
 				['<C-e>'] = cmp.mapping.abort(),
@@ -103,14 +104,16 @@ return {
 				['<C-Space>'] = cmp.mapping.complete(),
 			}),
 			sources = cmp.config.sources({
-				{ name = 'copilot', group_index = 2 },
+				-- { name = 'codecompanion' },
+				-- { name = 'parrot' },
+				-- { name = 'copilot', priority = 100 },
 				{ name = 'nvim_lsp' },
 				{ name = 'vsnip' },
 			}, {
+				{ name = 'nvim_lsp_signature_help' },
+			}, {
 				{ name = 'buffer' },
-			} --,{
-				--{ name = 'nvim_lsp_signature_help' },
-			--}
+			}
 			),
 		})
 	end
