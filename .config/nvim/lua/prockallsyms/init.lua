@@ -20,11 +20,13 @@ autocmd("TextYankPost", {
 	end,
 })
 
+--[=[
 autocmd("BufWritePre", {
 	group = prockallsyms,
 	pattern = "*",
 	command = [[%s/\s\+$//e]],
 })
+--]=]
 
 -- activate nvim-cmp completions for crates.nvim lazily
 local crates_cmp = augroup('CmpSourceCargo', { clear = true })
