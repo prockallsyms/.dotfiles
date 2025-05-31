@@ -5,7 +5,7 @@ return {
 		"sharkdp/fd",
 		{ "nvim-telescope/telescope-fzf-native.nvim", build ="make", },
 		"nvim-treesitter/nvim-treesitter",
-		"nvim-devicons/nvim-web-devicons",
+		"nvim-tree/nvim-web-devicons",
 		"nvim-lua/plenary.nvim",
 	},
 	lazy = false,
