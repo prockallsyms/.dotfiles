@@ -14,9 +14,7 @@ vim.keymap.set("n", "<Leader>nn", builtin.builtin, { desc = "Telescope test mapp
 
 -- file finding remaps
 vim.keymap.set("n", "<Leader>ff", function() Snacks.picker.files() end, { desc = "[F]ind [F]ile with from root" })
-vim.keymap.set("n", "<Leader>fg", function() Snacks.picker.git_files() end,
-	{ desc = "[F]ind non-i[G]nored file from git root" })
-vim.keymap.set("n", "<Leader>lg", function() Snacks.picker.grep() end, { desc = "[L]ive [G]rep files from git root" })
+vim.keymap.set("n", "<Leader>lg", function() Snacks.picker.grep() end, { desc = "[L]ive [G]rep" })
 
 -- buffer remaps
 vim.keymap.set("n", "<Leader>bb", function() Snacks.picker.buffers() end,
@@ -67,9 +65,15 @@ autocmd('LspAttach', {
 })
 
 -- git remaps
+vim.keymap.set("n", "<Leader>fg", function() Snacks.picker.git_files() end,
+	{ desc = "[F]ind non-i[G]nored file from git root" })
 vim.keymap.set("n", "<Leader>gs", function() Snacks.picker.git_status() end, { desc = "[G]it [S]tatus" })
 vim.keymap.set("n", "<Leader>gbr", function() Snacks.picker.git_branches() end, { desc = "[G]it [B]ranches" })
 vim.keymap.set("n", "<leader>gg", vim.cmd.Git, { desc = "Use Fugitive Git" })
+
+local t = require("telescope")
+vim.keymap.set("n", "<leader>gwc", function() t.extensions.git_worktree.create_git_worktree() end, { desc = "[G]it [W]orktree [C]reate" })
+vim.keymap.set("n", "<leader>gwb", function() t.extensions.git_worktree.git_worktree() end, { desc = "[G]it [W]orktrees [B]rowse" })
 local prockallsyms_Fugitive = vim.api.nvim_create_augroup("prockallsyms_Fugitive", {})
 autocmd("BufWinEnter", {
 	group = prockallsyms_Fugitive,
