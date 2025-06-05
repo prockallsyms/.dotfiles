@@ -16,4 +16,9 @@ return {
 			table.insert(require("cmp").get_config().sources, { name = "git", })
 		end,
 	},
+	{
+		"polarmutex/git-worktree.nvim",
+		version = "^2",
+		dependencies = { "nvim-lua/plenary.nvim" },
+	},
 }

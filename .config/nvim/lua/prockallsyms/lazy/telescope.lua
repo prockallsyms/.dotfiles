@@ -21,5 +21,6 @@ return {
 	},
 	config = function(_, opts)
 		require("telescope").load_extension("fzf")
+		require("telescope").load_extension("git_worktree")
 	end,
 }
