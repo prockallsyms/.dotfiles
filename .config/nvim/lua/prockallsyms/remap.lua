@@ -128,11 +128,14 @@ autocmd("FileType", {
 	end,
 })
 
---[[ Rust filetype-specific keymaps
+-- Rust filetype-specific keymaps
 autocmd("FileType", {
     pattern = "rs",
     callback = function(event)
-	vim.keymap.set("n", "<Leader>_", "", { desc = "" })
+	vim.keymap.set("n", "<Leader>cb", "<cmd>CargoBuild<CR>", { desc = "[C]argo [B]uild" })
+	vim.keymap.set("n", "<Leader>cr", "<cmd>CargoRun<CR>", { desc = "[C]argo [R]un" })
+	vim.keymap.set("n", "<Leader>ct", "<cmd>CargoTest<CR>", { desc = "[C]argo [T]est" })
+	vim.keymap.set("n", "<Leader>cu", "<cmd>CargoUpdate<CR>", { desc = "[C]argo [U]pdate" })
     end,
 })
 --]]
