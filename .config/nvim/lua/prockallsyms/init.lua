@@ -29,13 +29,13 @@ autocmd("BufWritePre", {
 --]=]
 
 -- activate nvim-cmp completions for crates.nvim lazily
-local crates_cmp = augroup('CmpSourceCargo', { clear = true })
-autocmd('BufRead', {
-	group = crates_cmp,
-	pattern = "Cargo.toml",
-	callback = function()
-		cmp.setup.buffer({ sources = { { name = "crates" } } })
-	end,
+local cmp = require('cmp')
+vim.api.nvim_create_autocmd("BufRead", {
+    group = vim.api.nvim_create_augroup("CmpSourceCargo", { clear = true }),
+    pattern = "Cargo.toml",
+    callback = function()
+        cmp.setup.buffer({ sources = {{ name = "crates" }}})
+    end,
 })
 
 vim.g.netrw_browse_split = 0

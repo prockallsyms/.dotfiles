@@ -22,7 +22,7 @@ return {
 					completion = false,
 					hover = true,
 				},
-				completions = {
+				completion = {
 					cmp = {
 						enabled = true,
 					},
@@ -32,6 +32,7 @@ return {
 	},
 	{
 		"nwiizo/cargo.nvim",
+		ft = { "rust" },
 		build = "cargo build --release",
 		config = function()
 			require("cargo").setup({
@@ -43,7 +44,6 @@ return {
 				close_timeout = 5000,
 			})
 		end,
-		ft = { "rust" },
 		cmd = {
 			"CargoBench",
 			"CargoBuild",
