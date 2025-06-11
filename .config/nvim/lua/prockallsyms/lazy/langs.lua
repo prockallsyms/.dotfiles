@@ -17,7 +17,7 @@ return {
 			require('crates').setup({
 				lsp = {
 					enabled = true,
-					on_attack = function(client, bufnr) end,
+					on_attach = function(client, bufnr) end,
 					actions = true,
 					completion = false,
 					hover = true,

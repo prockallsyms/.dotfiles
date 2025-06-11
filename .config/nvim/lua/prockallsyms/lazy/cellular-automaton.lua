@@ -1,6 +1,7 @@
 return {
 	'Eandrju/cellular-automaton.nvim',
 	-- shamefully ripped from tamton-aquib/zone.nvim
+	enabled = false,
 	config = function(opts)
 		local timer
 		local grp = vim.api.nvim_create_augroup('CellularAutomaton', {clear = true})
