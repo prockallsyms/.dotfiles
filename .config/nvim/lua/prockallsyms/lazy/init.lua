@@ -1,5 +1,13 @@
 return {
 	{
+		"j-hui/fidget.nvim",
+	},
+	{
+		"vimpostor/vim-tpipeline",
+		dependencies = 'nvim-lualine/lualine.nvim',
+		event = "VeryLazy", 
+	},
+	{
 		"nvim-lua/plenary.nvim",
 		name = "plenary"
 	},

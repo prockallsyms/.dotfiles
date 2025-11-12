@@ -89,3 +89,5 @@ zoxide init --cmd j fish | source
 source "$HOME/.local/share/env.fish"
 set -x PATH $PATH ~/.local/bin
 nvm -s use latest
+set -x PATH $PATH /usr/local/go/bin /usr/local/bin
+tmux
