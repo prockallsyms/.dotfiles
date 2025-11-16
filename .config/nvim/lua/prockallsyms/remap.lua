@@ -12,6 +12,12 @@ local builtin = require("telescope.builtin")
 -- telescope test mapping
 vim.keymap.set("n", "<Leader>nn", builtin.builtin, { desc = "Telescope test mapping (builtin.builtin)" })
 
+-- Generic Snacks remaps
+vim.keymap.set("n", "<Leader>nh", function() Snacks.notifier.show_history() end, { desc = "[N]otifier [H]istory" })
+vim.keymap.set("n", "<Leader>tt", function() Snacks.terminal.toggle() end, { desc = "[T]erminal [T]oggle" })
+vim.keymap.set("n", "<Leader>eo", function() Snacks.explorer.open() end, { desc = "[E]xplorer [O]pen" })
+
+
 -- file finding remaps
 vim.keymap.set("n", "<Leader>ff", function() Snacks.picker.files() end, { desc = "[F]ind [F]ile with from root" })
 vim.keymap.set("n", "<Leader>lg", function() Snacks.picker.grep() end, { desc = "[L]ive [G]rep" })

@@ -38,6 +38,7 @@ return {
 		quickfile = { enabled = true },
 		scope = { enabled = true },
 		statuscolumn = { enabled = true },
+		terminal = { enalbed = true },
 		words = { enabled = true },
 	},
 }
